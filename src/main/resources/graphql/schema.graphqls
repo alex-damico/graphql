@@ -1,0 +1,48 @@
+schema {
+    query: QueryType,
+    mutation: MutationType,
+}
+
+type QueryType {
+    getBook(id: Int): Book,
+    getBooks: [Book],
+    getAuthor(id: Int): Author,
+    getAuthors: [Author],
+}
+
+type MutationType {
+    createAuthor(name: String!, genre: Genre!): Author,
+}
+
+enum Genre {
+    NOVEL
+    PLAY
+    JAVA
+}
+
+type Author {
+    id: ID!,
+    name: String,
+    books: [Book],
+    genre: Genre,
+}
+
+#Book
+type Book {
+    # ID
+    id: ID!,
+    # Title
+    title: String,
+    # Description
+    description: String,
+    # Price
+    price: Float,
+    # Author
+    author: Author,
+    # Genre
+    genre: Genre,
+    # Reviews
+    reviews: Int,
+    # Available
+    available: Boolean
+}
