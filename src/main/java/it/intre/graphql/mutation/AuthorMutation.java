@@ -15,9 +15,9 @@ public class AuthorMutation implements GraphQLMutationResolver {
         this.authorService = authorService;
     }
 
-    public Author createAuthor(final String name, final Genre genre) {
+    public Author createAuthor(final String name) {
         return this.authorService.save(Author.builder()
-                .name(name).genre(genre)
+                .name(name)
                 .build());
     }
 }
